@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Practice</title>
+  </head>
+  <body>
+    <div class="bar-container">
+      <div class="bar" />
+    </div>
+
+    <button onclick="fillBar(2)">Start</button>
+
+    <script>
+      function fillBar(seconds) {
+        const bar = document.querySelector(".bar");
+        let atPercent = 0;
+        const interval = setInterval(() => {
+          bar.style.width = atPercent + "%";
+          atPercent++;
+          console.log("running at", atPercent);
+          if (atPercent >= 100) {
+            clearInterval(interval);
+          }
+        }, (seconds * 1000) / 100);
+      }
+    </script>
+
+    <style>
+      body {
+        background: #ccc;
+      }
+      .bar-container {
+        width: 200px;
+        height: 30px;
+        /* margin: "40px"; */
+        background: #666;
+      }
+      .bar {
+        background: green;
+        height: 100%;
+        width: 0%;
+      }
+    </style>
+  </body>
+</html>
