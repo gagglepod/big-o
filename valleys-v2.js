@@ -1,6 +1,22 @@
 // Counting Valleys Challenge
 // https://codingwithmanny.medium.com/how-to-solve-the-counting-valleys-challenge-f7c6cac95d25
 
+// ************************************************
+// Problem
+// The Counting Valleys challenge is counting the number of valleys Gary the hiker goes though:
+// Gary = Hiker
+// Sea level is 0 — Also the starting level
+// S = Descriptive string that is the path of steps Gary the hiker takes
+// U and D are “Up” and “Down” respectively and the direction of Gary’s step
+// N = number of steps between 2 and 10⁶ (1,000,000)
+// AR is a single string of spaced numbers with values ranging between 1 and 100 — ex 10 11 20 31
+// N is the number of values in steps in the path between 2 and 1,000,000 (which could be useless if we’re just calculating the array length)
+// A valley is defined as going lower than sea level and then back to sea level
+
+// ************************************************
+// Goal
+// Write a function or functions that returns the total number of valleys found by traversing the string path (S) of steps
+
 function countingValleys(n, s) {
   const min = 2;
   const max = 1000000;
@@ -16,6 +32,7 @@ function countingValleys(n, s) {
     n <= max &&
     n === s.length
   ) {
+    // remove s = s.map because we're already iterating
     s.map((steps) => (steps === "U" ? 1 : -1)).reduce((prev, next) => {
       if (prev < 0 && !isInValley) {
         isInValley = true;
@@ -24,7 +41,7 @@ function countingValleys(n, s) {
         valleys++;
         isInValley = false;
       }
-
+      // continue incrementing by adding
       return prev + next;
     });
   }
@@ -32,7 +49,7 @@ function countingValleys(n, s) {
   return valleys;
 }
 
-// Test Case
+// Test Cases
 // N = 8, S = "UDDDUDUU", Expected 1
 // N = 12, S = "DDUUDDUDUUUD", Expected 2
 // N = 1, S = "DU", Expected 0
