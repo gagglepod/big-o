@@ -1,0 +1,25 @@
+body {
+  background: #ccc;
+}
+
+/* button */
+
+.bar-container {
+  width: 200px;
+  height: 30px;
+  /* margin: "40px"; */
+  background: #666;
+}
+.bar {
+  background: rgb(123, 226, 123);
+  height: 100%;
+  width: 0%;
+}
+
+/* button */
+
+.btn {
+  font-size: 24px;
+  height: 48px;
+  width: 96px;
+}
